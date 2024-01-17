@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css">
+    <title>Sign Up</title>
+</head>
+<style>
+    table{
+        overflow-x: hidden;
+    }
+</style>
+<body onload="displayStudents()" style="background: linear-gradient(135deg, #153677, #4e085f);">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 shadow-sm mx-auto">
+                <h1 class="text-center text-decoration-underline text-warning">School Portal</h1>
+                <input  class="form-control my-2" type="text" placeholder="Enter your firstname" id="fname">
+                <input  class="form-control my-2" type="text" placeholder="Enter your lastname" id="lname">
+                <input  class="form-control my-2" type="text" placeholder="Enter your Email" id="mail">
+                <input  class="form-control my-2" type="password" placeholder="Enter your password" id="pass">
+                <button class="btn btn-info my-2 w-100 " onclick="signUp()" >Sign Up</button>
+                <button class="btn btn-danger my-2 w-100" onclick="deleteAll()">Delete All Student</button>
+            </div>
+        </div>
+        
+        <div id="editDiv">
+            
+        </div>
+    
+        <div id="disp"></div>
+    
+        <table id="myTable" class="table table-bordered border-info col-sm-12">
+            
+        </table>
+    </div>
+
+    <hr>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+var allStudents = []
+
+        function signUp(){
+           if (fname.value,lname.value,mail.value,pass.value == "") {
+            alert("Type Your Details")
+        
+           } else {
+              var student = {
+               firstname: fname.value,
+               lastname: lname.value,
+               email: mail.value,
+               password: pass.value, 
+             }
+              allStudents.push(student),
+               console.log(student)
+              displayStudents()
+              saveData()
+            }            
+             fname.value = "",lname.value ="",mail.value ="",pass.value = ""
+        }
+        function displayStudents(){
+            if(allStudents.length==0){
+            myTable.innerHTML = ""
+            disp.innerHTML = `<h1 style="text-align:center;color:white;font-weight:bolder;">There are currently no students</h1>`
+            
+            }else{
+                disp.innerHTML = ""
+                myTable.innerHTML = ""
+                myTable.innerHTML += `
+                <tr>
+                   <th class="table-dark">S/N</th>
+                   <th class="table-dark">First Name</th>
+                   <th class="table-dark">Last Name</th>
+                   <th class="table-dark">Email</th>
+                   <th class="table-dark">Password</th>
+                   <th class="table-dark">Actions</th>
+                </tr>
+                `
+                for (let index = 0; index < allStudents.length; index++) {
+                    console.log(allStudents[index].firstname)
+                    myTable.innerHTML += `
+                    <tr class="table-info">
+                        <td>${index+1}</td>
+                        <td>${allStudents[index].firstname}</td>
+                        <td>${allStudents[index].lastname}</td>
+                        <td>${allStudents[index].email}</td>
+                        <td>${allStudents[index].password}</td>
+                        <td class="space-between">
+                           <button  onclick="deleteUser(${index})" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                           <button  onclick="editUser(${index})" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    `   
+                }
+                saveData()
+            } 
+        }
+
+        function deleteUser(userIndex){
+           allStudents.splice(userIndex,1)
+           displayStudents()
+           saveData()
+        }
+
+        function editUser(userIndex){
+           editDiv.innerHTML = `
+           <input type="text" placeholder="firstname" id="editfn">
+           <input type="text" placeholder="lastname" id="editln">
+           <input type="text" placeholder="email" id="editem">
+           <input type="text" placeholder="password" id="editps">
+           <button onclick="updateDtails(${userIndex})">Update Details</button>
+           `
+           editfn.value = allStudents[userIndex].firstname
+           editln.value = allStudents[userIndex].lastname
+           editem.value = allStudents[userIndex].email
+           editps.value = allStudents[userIndex].password
+           saveData()
+
+        }
+
+        function updateDtails(index){
+           var newDetails = {
+           firstname : editfn.value,
+           lastname : editln.value,
+           email : editem.value,
+           password : editps.value
+          }
+           allStudents.splice(index,1,newDetails)
+           console.log(allStudents)
+           displayStudents()
+           editDiv.innerHTML = ""  
+           saveData()  
+        }
+
+        function deleteAll(){
+           allStudents.splice(0)
+           console.log(allStudents)
+           displayStudents()
+           saveData()
+        }
+
+        function saveData(){
+         localStorage.setItem("data", myTable.innerHTML)
+     }
