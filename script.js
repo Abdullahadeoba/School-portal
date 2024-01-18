@@ -2,7 +2,10 @@ var allStudents = []
 
         function signUp(){
            if (fname.value,lname.value,mail.value,pass.value == "") {
-            alert("Type Your Details")
+            error.style.display = "block"
+            setTimeout(() =>{
+            error.style.display = "none"
+            },5000)
         
            } else {
               var student = {
@@ -57,9 +60,13 @@ var allStudents = []
         }
 
         function deleteUser(userIndex){
-           allStudents.splice(userIndex,1)
+           if(myTable.innerHTML == ""){
+            error.innerHTML = "No student to be deleted"
+           }else{
+            allStudents.splice(userIndex,1)
            displayStudents()
            saveData()
+           }
         }
 
         function editUser(userIndex){
@@ -69,7 +76,7 @@ var allStudents = []
            <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="lastname" id="editln">
            <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="email" id="editem">
            <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="password" id="editps">
-           <button onclick="updateDtails(${userIndex})" class=" mt-2 col-12 btn btn-primary btn-sm">Update Details</button>
+           <button onclick="updateDtails(${userIndex})" class=" mt-2 mb-2 col-12 btn btn-primary btn-sm">Update Details</button>
            </div>
            `
            editfn.value = allStudents[userIndex].firstname
