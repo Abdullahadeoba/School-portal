@@ -112,3 +112,4 @@ var allStudents = []
         function saveData(){
          localStorage.setItem("data", myTable.innerHTML)
      }
+     saveData()
