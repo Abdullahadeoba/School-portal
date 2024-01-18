@@ -64,11 +64,13 @@ var allStudents = []
 
         function editUser(userIndex){
            editDiv.innerHTML = `
-           <input type="text" placeholder="firstname" id="editfn">
-           <input type="text" placeholder="lastname" id="editln">
-           <input type="text" placeholder="email" id="editem">
-           <input type="text" placeholder="password" id="editps">
-           <button onclick="updateDtails(${userIndex})">Update Details</button>
+           <div>
+           <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="firstname" id="editfn">
+           <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="lastname" id="editln">
+           <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="email" id="editem">
+           <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="password" id="editps">
+           <button onclick="updateDtails(${userIndex})" class=" mt-2 col-12 btn btn-primary btn-sm">Update Details</button>
+           </div>
            `
            editfn.value = allStudents[userIndex].firstname
            editln.value = allStudents[userIndex].lastname
