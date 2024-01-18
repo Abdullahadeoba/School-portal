@@ -19,6 +19,7 @@
             <div class="col-12 shadow-sm mx-auto">
                 <h1 class="text-center text-decoration-underline text-light">School Portal</h1>
                 <div class="alert alert-danger my-2 p-1 text-danger text-center fw-bolder fs-5" style="display: none;" id="error">Input fields cannot be empty</div>
+                <div class="alert alert-danger my-2 p-1 text-danger text-center fw-bolder fs-5" style="display: none;" id="erro">No student to be deleted</div>
                 <label for="" class="text-light">First Name:</label>
                 <input  class="form-control my-2" type="text" placeholder="Enter your firstname" id="fname">
                 <label for="" class="text-light">Last Name:</label>
@@ -28,19 +29,19 @@
                 <label for="" class="text-light">Password:</label>
                 <input  class="form-control my-2" type="password" placeholder="Enter your password" id="pass">
                 <button class="btn btn-info my-2 w-100 " onclick="signUp()" >Sign Up</button>
-                <button class="btn btn-danger my-2 w-100" onclick="deleteAll()">Delete All Student</button>
+                <button class="btn btn-danger my-2 w-100" id="deleteBtn" style="display: none;" onclick="deleteAll()">Delete All Student</button>
             </div>
         </div>
         
         <div id="editDiv">
-            
+
         </div>
+        
+            <table id="myTable" class="table table-bordered border-info">
+                
+            </table>
     
         <div id="disp"></div>
-    
-        <table id="myTable" class="table table-bordered border-info">
-            
-        </table>
     </div>
 
     <hr>

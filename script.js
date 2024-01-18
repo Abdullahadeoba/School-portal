@@ -17,6 +17,7 @@ var allStudents = []
               allStudents.push(student),
                console.log(student)
               displayStudents()
+              deleteBtn.style.display = "block"
               saveData()
             }            
              fname.value = "",lname.value ="",mail.value ="",pass.value = ""
@@ -60,13 +61,12 @@ var allStudents = []
         }
 
         function deleteUser(userIndex){
-           if(myTable.value == ""){
-            error.innerHTML = "No student to be deleted"
-            error.style.display = "block"
+           if(myTable.length === 0){
+            erro.style.display = "block"
            }else{
             allStudents.splice(userIndex,1)
-           displayStudents()
-           saveData()
+            displayStudents()
+            saveData()
            }
         }
 
