@@ -12,7 +12,7 @@ var allStudents = []
                firstname: fname.value,
                lastname: lname.value,
                email: mail.value,
-               password: pass.value, 
+               // password: pass.value, 
              }
               allStudents.push(student),
                console.log(student)
@@ -35,10 +35,10 @@ var allStudents = []
                    <th class="table-dark">First Name</th>
                    <th class="table-dark">Last Name</th>
                    <th class="table-dark">Email</th>
-                   <th class="table-dark">Password</th>
                    <th class="table-dark">Actions</th>
-                </tr>
-                `
+                   </tr>
+                   `
+                  //  <th class="table-dark">Password</th>
                 for (let index = 0; index < allStudents.length; index++) {
                     console.log(allStudents[index].firstname)
                     myTable.innerHTML += `
@@ -47,21 +47,22 @@ var allStudents = []
                         <td>${allStudents[index].firstname}</td>
                         <td>${allStudents[index].lastname}</td>
                         <td>${allStudents[index].email}</td>
-                        <td>${allStudents[index].password}</td>
                         <td class="space-between">
-                           <button  onclick="deleteUser(${index})" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                           <button  onclick="editUser(${index})" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                        <button  onclick="deleteUser(${index})" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <button  onclick="editUser(${index})" class="btn btn-warning"><i class="fas fa-edit"></i></button>
                         </td>
-                    </tr>
-                    `   
+                        </tr>
+                        `   
+                        // <td>${allStudents[index].password}</td>
                 }
                 saveData()
             } 
         }
 
         function deleteUser(userIndex){
-           if(myTable.innerHTML == ""){
+           if(myTable.value == ""){
             error.innerHTML = "No student to be deleted"
+            error.style.display = "block"
            }else{
             allStudents.splice(userIndex,1)
            displayStudents()
@@ -75,14 +76,14 @@ var allStudents = []
            <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="firstname" id="editfn">
            <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="lastname" id="editln">
            <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="email" id="editem">
-           <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="password" id="editps">
            <button onclick="updateDtails(${userIndex})" class=" mt-2 mb-2 col-12 btn btn-primary btn-sm">Update Details</button>
            </div>
            `
+         //   <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="password" id="editps">
            editfn.value = allStudents[userIndex].firstname
            editln.value = allStudents[userIndex].lastname
            editem.value = allStudents[userIndex].email
-           editps.value = allStudents[userIndex].password
+         //   editps.value = allStudents[userIndex].password
            saveData()
 
         }
@@ -92,7 +93,7 @@ var allStudents = []
            firstname : editfn.value,
            lastname : editln.value,
            email : editem.value,
-           password : editps.value
+         //   password : editps.value
           }
            allStudents.splice(index,1,newDetails)
            console.log(allStudents)
