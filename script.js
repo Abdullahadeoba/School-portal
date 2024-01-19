@@ -61,14 +61,10 @@ var allStudents = []
         }
 
         function deleteUser(userIndex){
-           if(myTable.length === 0){
-            erro.style.display = "block"
-           }else{
             allStudents.splice(userIndex,1)
             displayStudents()
             saveData()
            }
-        }
 
         function editUser(userIndex){
            editDiv.innerHTML = `
