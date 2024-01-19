@@ -6,7 +6,7 @@ var allStudents = []
             setTimeout(() =>{
             error.style.display = "none"
             },5000)
-        
+
            } else {
               var student = {
                firstname: fname.value,
@@ -43,7 +43,7 @@ var allStudents = []
                 for (let index = 0; index < allStudents.length; index++) {
                     console.log(allStudents[index].firstname)
                     myTable.innerHTML += `
-                    <tr class="table-info col-10 col-sm-12" style="overflow-x:hidden">
+                    <tr class="table-info">
                         <td>${index+1}</td>
                         <td>${allStudents[index].firstname}</td>
                         <td>${allStudents[index].lastname}</td>
