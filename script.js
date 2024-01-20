@@ -77,7 +77,7 @@ var allStudents = []
            `
          //   <input type="text" class="col-3 form-control shadow-none mt-2" placeholder="password" id="editps">
            editfn.value = allStudents[userIndex].firstname
-           editln.value = allStudents[userIndex].lastnamez
+           editln.value = allStudents[userIndex].lastname
            editem.value = allStudents[userIndex].email
          //   editps.value = allStudents[userIndex].password
            saveData()
