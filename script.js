@@ -2,9 +2,9 @@ var allStudents = []
 
         function signUp(){
            if (fname.value,lname.value,mail.value,pass.value == "") {
-            error.style.display = "block"
+            emptyErrorMessage.style.display = 'block'
             setTimeout(() =>{
-            error.style.display = "none"
+            emptyErrorMessage.style.display = "none"
             },5000)
 
            } else {
@@ -16,9 +16,12 @@ var allStudents = []
              }
               allStudents.push(student),
                console.log(student)
+               successMessage.style.display = 'block'
+               setTimeout(()=>{
+               successMessage.style.display = 'none'
+               }, 3000)
               displayStudents()
               deleteBtn.style.display = "block"
-              saveData()
             }            
              fname.value = "",lname.value ="",mail.value ="",pass.value = ""
         }
@@ -56,14 +59,12 @@ var allStudents = []
                         `   
                         // <td>${allStudents[index].password}</td>
                 }
-                saveData()
             } 
         }
 
         function deleteUser(userIndex){
             allStudents.splice(userIndex,1)
             displayStudents()
-            saveData()
            }
 
         function editUser(userIndex){
@@ -80,7 +81,6 @@ var allStudents = []
            editln.value = allStudents[userIndex].lastname
            editem.value = allStudents[userIndex].email
          //   editps.value = allStudents[userIndex].password
-           saveData()
 
         }
 
@@ -94,18 +94,11 @@ var allStudents = []
            allStudents.splice(index,1,newDetails)
            console.log(allStudents)
            displayStudents()
-           editDiv.innerHTML = ""  
-           saveData()  
+           editDiv.innerHTML = ""   
         }
 
         function deleteAll(){
            allStudents.splice(0)
            console.log(allStudents)
            displayStudents()
-           saveData()
         }
-
-        function saveData(){
-         localStorage.setItem("data", myTable.innerHTML)
-     }
-     saveData()
