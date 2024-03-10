@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap.css">
     <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.css">
 </head>
-<body>
-    <h1 class="text-decoration-underline text-center text-success mt-3 ">Welcome to Dashboard <i class="fa fa-dashboard" aria-hidden="true"></i></h1>
+<body onload="displayStudent()">
+    <h1 class="text-decoration-underline text-center text-success mt-3 ">Welcome to Dashboard <i class="fa fa-laptop text-success" aria-hidden="true"></i></h1>
 
        
     <div id="editDiv">
@@ -16,49 +16,13 @@
     </div>
     
     <div id="disp"></div>
-    <table id="displayStudent" class="table table-bordered border-info">
+    <table id="myTable" class="table table-bordered border-info">
 </div>
 
     </table>
 
     <script>
-        function displayStudents(){
-            if(allStudents.length==0){
-            myTable.innerHTML = ""
-            disp.innerHTML = `<h1 style="text-align:center;color:white;font-weight:bolder;">There are currently no students</h1>`
-            
-            }else{
-                disp.innerHTML = ""
-                myTable.innerHTML = ""
-                myTable.innerHTML += `
-                <tr>
-                   <th class="table-dark">S/N</th>
-                   <th class="table-dark">First Name</th>
-                   <th class="table-dark">Last Name</th>
-                   <th class="table-dark">Email</th>
-                   <th class="table-dark">Actions</th>
-                   </tr>
-                   `
-                  //  <th class="table-dark">Password</th>
-                for (let index = 0; index < allStudents.length; index++) {
-                    console.log(allStudents[index].firstname)
-                    myTable.innerHTML += `
-                    <tr class="table-info">
-                        <td>${index+1}</td>
-                        <td>${allStudents[index].firstname}</td>
-                        <td>${allStudents[index].lastname}</td>
-                        <td>${allStudents[index].email}</td>
-                        <td class="space-between">
-                        <button  onclick="deleteUser(${index})" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                        <button  onclick="editUser(${index})" class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                        </td>
-                        </tr>
-                        `   
-                        // <td>${allStudents[index].password}</td>
-                }
-            } 
-        }
-   
+       
     </script>
 </body>
 </html>
