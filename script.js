@@ -22,10 +22,11 @@ var allStudents = []
                }, 3000)
                
                deleteBtn.style.display = "block"
+               displayStudents()
             }            
             fname.value = "",lname.value ="",mail.value ="",pass.value = ""
          }
-         window.location.href = 'dashboard.html'
+         // window.location.href = 'dashboard.html'
      function deleteUser(userIndex){
          allStudents.splice(userIndex,1)
          displayStudents()
